@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
 # 1.2.0 Fixes
 
 `[Website]` - Overhaul rework of structure and components.
+`[Main]` - Added loading animation.
+`[Resume]` - Added loading animation.
+`[Projects]` - Added loading animation.
 
 # 1.1.0
 

@@ -6,10 +6,14 @@ import { useEffect, useState } from 'react';
 import { Application, ProcessWork } from '@/data/common/types';
 import { getApplications } from '@/data/api/application';
 import { getProcessWorks } from '@/data/api/work';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Projects = () => {
   const [applications, setApplication] = useState<Application[]>([]);
   const [works, setWork] = useState<ProcessWork[]>([]);
+  const [applicationLoading, setApplicationLoading] = useState(true);
+  const [workLoading, setWorkLoading] = useState(true);
 
   useEffect(() => {
     getApplicationData();
@@ -19,11 +23,13 @@ const Projects = () => {
   const getApplicationData = async () => {
     const applicationData = await getApplications();
     setApplication(applicationData);
+    setApplicationLoading(false);
   }
 
   const getWorkData = async () => {
     const workData = await getProcessWorks();
     setWork(workData);
+    setWorkLoading(false);
   }
 
   return (
@@ -37,6 +43,7 @@ const Projects = () => {
 
           <div className='min-h-[70vh] w-full'>
             <TabsContent value='personal'>
+              { applicationLoading && <Skeleton containerClassName='w-full' count={18} /> }
               <ScrollArea className='h-[525px]'>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -91,6 +98,7 @@ const Projects = () => {
               </ScrollArea>
             </TabsContent>
             <TabsContent value='work'>
+              { workLoading && <Skeleton containerClassName='w-full' count={18} /> }
               <ScrollArea className='h-[525px]'>
                 <motion.div 
                   initial={{ opacity: 0 }}

@@ -10,6 +10,8 @@ import { getAbouts } from '@/data/api/about';
 import { getExperiences } from '@/data/api/experience';
 import { getSkillsWithIcons } from '@/data/api/skills';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Resume = () => {
   const profileHeading: Heading = getProfileHeading();
@@ -19,6 +21,11 @@ const Resume = () => {
   const [abouts, setAbout] = useState<About[]>([]);
   const [experiences, setExperience] = useState<Experience[]>([]);
   const [skills, setSkills] = useState<Skills[]>([]);
+
+  const [infoLoading, setInfoLoading] = useState(true);
+  const [aboutLoading, setAboutLoading] = useState(true);
+  const [experienceLoading, setExperienceLoading] = useState(true);
+  const [skillsLoading, setSkillsLoading] = useState(true);
 
   useEffect(() => {
     getInformationData();
@@ -30,21 +37,25 @@ const Resume = () => {
   const getInformationData = async () => {
     const infos: Information[] = await getInformations();
     setInformation(infos);
+    setInfoLoading(false);
   }
 
   const getAboutData = async () => {
     const abouts: About[] = await getAbouts();
     setAbout(abouts);
+    setAboutLoading(false);
   }
 
   const getExperienceData = async () => {
     const exps: Experience[] = await getExperiences();
     setExperience(exps);
+    setExperienceLoading(false);
   }
 
   const getSkills = async () => {
     const data: Skills[] = await getSkillsWithIcons();
     setSkills(data);
+    setSkillsLoading(false);
    }
 
   return (
@@ -68,6 +79,7 @@ const Resume = () => {
             <TabsTrigger value={skillsHeading.value}>{skillsHeading.title}</TabsTrigger>
 
             <div className='hidden text-white m-6 ps-[20px] xl:block'>
+              { infoLoading && <Skeleton containerClassName='w-full' count={5} /> }
               {
                 informations?.map((item, index) => {
                   return (
@@ -93,6 +105,7 @@ const Resume = () => {
                 </div>
 
                 <ScrollArea className='h-[400px]'>
+                  { aboutLoading && <Skeleton containerClassName='w-full' count={12} /> }
                   <div className='flex flex-col gap-2 bg-sidebar rounded-md'>
                     {
                       abouts.map((item: About, index: number) => {
@@ -114,6 +127,7 @@ const Resume = () => {
                 </div>
                 <ScrollArea className='h-[400px]'>
                   <ul className='flex flex-col gap-4'>
+                    { experienceLoading && <Skeleton containerClassName='w-full' count={12} /> }
                     {
                       experiences.map((item: Experience, index: number) => {
                         return (
@@ -145,6 +159,7 @@ const Resume = () => {
                   <p className='max-w-[600px] mx-auto xl:mx-0'>{skillsHeading.description}</p>
                 </div>
                 <ScrollArea className='h-[400px]'>
+                  { skillsLoading && <Skeleton containerClassName='w-full' count={12} /> }
                   <ul className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 xl:gap-[30px]'>
                     {
                       skills.map((item: Skills, index: number) => {

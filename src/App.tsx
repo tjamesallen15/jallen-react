@@ -8,9 +8,12 @@ import { Badge } from "./components/ui/badge";
 import Profile from "./components/org/jallen/profile/Profile";
 import Socials from "./components/org/jallen/socials/Socials";
 import { motion } from 'framer-motion';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const App = () => {
   const [skills, setSkills] = useState<Skills[]>();
+  const [isLoading, setLoading] = useState(true);
   const data: IndexData = getIndexData();
 
   useEffect(() => {
@@ -20,6 +23,7 @@ const App = () => {
   const getSkillData = async () => {
     const data: Skills[] = await getSkills();
     setSkills(data);
+    setLoading(false);
   }
 
   return (
@@ -68,7 +72,8 @@ const App = () => {
               ease: 'easeIn'
             }
           }}
-          className='hidden xl:flex flex-row gap-2 max-w-[1250px] flex-wrap'>
+          className='hidden xl:flex flex-row gap-2 w-full max-w-[1250px] flex-wrap'>
+          { isLoading && <Skeleton containerClassName='w-full' count={3} /> }
           {
             skills?.map((item, index: number) => {
               return (
