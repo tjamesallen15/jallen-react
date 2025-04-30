@@ -14,7 +14,7 @@ export async function getServerData(path: string) {
   return data;
 }
 
-export async function getValidateData(path: string, sec?: number) {
+export async function getValidateData(path: string) {
   const apiPath = `https://tyrael.up.railway.app/${path}`;
 
   const response = await fetch(apiPath, {
