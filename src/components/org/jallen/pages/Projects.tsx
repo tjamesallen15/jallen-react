@@ -98,8 +98,8 @@ const Projects = () => {
                           </div>
                           <h2 className='text-[18px] font-bold leading-none text-accent transition-all duration-500'>{item.tech}</h2>
                           <h2 className='text-[14px] text-foreground font-semibold leading-none'>{item.category}</h2>
-                          <p className='text-foreground mt-4 font-karla'>{item.description}</p>
-                          <div className='border-b border-sidebar w-full' />
+                          <p className='text-foreground mt-4 font-karla pe-4'>{item.description}</p>
+                          <div className='border-b border-sidebar w-[calc(100%-16px)]' />
                         </div>
                       )
                     })
