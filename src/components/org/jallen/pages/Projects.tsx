@@ -33,7 +33,17 @@ const Projects = () => {
   }
 
   return (
-    <section className='min-h-[80vh] flex flex-col justify-center py-12 xl:py-0'>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ 
+        opacity: 1,
+        transition: { 
+          delay: 1.0,
+          duration: 0.4,
+          ease: 'easeIn'
+        }
+      }} 
+      className='min-h-[80vh] flex flex-col justify-center py-12 xl:py-0'>
       <div className='container mx-auto'>
         <Tabs defaultValue='personal' className='flex flex-col'>
           <TabsList className='mt-0 xl:mt-8'>
@@ -138,7 +148,7 @@ const Projects = () => {
         </Tabs>
         
       </div>
-    </section>
+    </motion.section>
   )
 }
 
