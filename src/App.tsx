@@ -27,7 +27,7 @@ const App = () => {
   }
 
   return (
-    <section className='h-[85vh]'>
+    <section className='h-[100vh] xl:h-[85vh]'>
       <div className='container mx-auto h-full'>
         <div className='flex flex-col pt-8 xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
           <div className='text-center xl:text-left order-2 xl:order-none'>
