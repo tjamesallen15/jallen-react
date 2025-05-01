@@ -5,7 +5,7 @@ import { TbBrandOauth } from 'react-icons/tb';
 
 export function getIndexData() {
   const data: IndexData = {
-    title: 'Senior Software Developer',
+    title: 'Senior Software Engineer',
     first: 'James Allen',
     last: 'Tadique',
     message: 'I am a full-stack developer with 11 years of total experience in different technical stacks. A person that finds enjoyment in learning about software development such as different languages or technology, open to new challenges in coding and can be a team player. I thrive in research and development while delivering high quality systems.'
