@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - `[Projects]` Added loading animation.
 - `[Resume]` Added loading animation.
 - `[Website]` Overhaul rework of structure and components.
+- `[Website]` Fixed infinite loop of useEffects.
 
 # 1.1.0
 

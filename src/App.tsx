@@ -18,9 +18,10 @@ const App = () => {
 
   useEffect(() => {
     getSkillData();
-  })
+  }, [])
 
   const getSkillData = async () => {
+    if (!isLoading) return;
     const data: Skills[] = await getSkills();
     setSkills(data);
     setLoading(false);

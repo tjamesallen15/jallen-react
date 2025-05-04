@@ -18,15 +18,17 @@ const Projects = () => {
   useEffect(() => {
     getApplicationData();
     getWorkData();
-  });
+  }, []);
 
   const getApplicationData = async () => {
+    if (!applicationLoading) return;
     const applicationData = await getApplications();
     setApplication(applicationData);
     setApplicationLoading(false);
   }
 
   const getWorkData = async () => {
+    if (!workLoading) return;
     const workData = await getProcessWorks();
     setWork(workData);
     setWorkLoading(false);

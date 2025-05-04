@@ -32,27 +32,31 @@ const Resume = () => {
     getAboutData();
     getExperienceData();
     getSkills();
-  });
+  }, []);
 
   const getInformationData = async () => {
+    if (!infoLoading) return;
     const infos: Information[] = await getInformations();
     setInformation(infos);
     setInfoLoading(false);
   }
 
   const getAboutData = async () => {
+    if (!aboutLoading) return;
     const abouts: About[] = await getAbouts();
     setAbout(abouts);
     setAboutLoading(false);
   }
 
   const getExperienceData = async () => {
+    if (!experienceLoading) return;
     const exps: Experience[] = await getExperiences();
     setExperience(exps);
     setExperienceLoading(false);
   }
 
   const getSkills = async () => {
+    if (!skillsLoading) return;
     const data: Skills[] = await getSkillsWithIcons();
     setSkills(data);
     setSkillsLoading(false);
