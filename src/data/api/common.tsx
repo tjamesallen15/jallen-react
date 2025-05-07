@@ -80,6 +80,17 @@ export function getFooterSocials() {
   return socials;
 }
 
+export function getPortfolioView(name: string) {
+  switch (name) {
+    case 'react':
+      return 'https://jallen-react.vercel.app/'
+    case 'next':
+      return 'https://jallen-next.vercel.app/'
+    case 'vue':
+      return 'https://jallen-vue.vercel.app/'
+  }
+}
+
 export function getSkillIcon(name: string) {
   const skills: SkillIcon[] = [
     {
