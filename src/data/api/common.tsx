@@ -1,6 +1,6 @@
 import { FaAngular, FaCss3, FaEnvelope, FaFigma, FaGit, FaGithub, FaGitlab, FaHtml5, FaJava, FaJenkins, FaJs, FaLinkedin, FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
 import { Heading, IndexData, NavigationItem, SkillIcon, Social } from '../common/types';
-import { SiApachemaven, SiMysql, SiNextdotjs, SiOracle, SiPostgresql, SiPuppeteer, SiRailway, SiSpring, SiSpringboot, SiSqlite, SiTailwindcss, SiTypescript, SiVercel } from 'react-icons/si';
+import { SiApachemaven, SiMysql, SiNextdotjs, SiOracle, SiPostgresql, SiPuppeteer, SiRailway, SiSpring, SiSpringboot, SiSqlite, SiTailwindcss, SiTypescript, SiVercel, SiVuedotjs } from 'react-icons/si';
 import { TbBrandOauth } from 'react-icons/tb';
 
 export function getIndexData() {
@@ -200,6 +200,10 @@ export function getSkillIcon(name: string) {
     {
       name: 'Vercel',
       icon: <SiVercel />
+    },
+    {
+      name: 'Vue.js',
+      icon: <SiVuedotjs />
     }
   ];
 
