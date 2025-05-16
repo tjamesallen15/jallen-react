@@ -1,7 +1,10 @@
-export async function getServerData(path: string) {
-  const apiPath = `https://tyrael.up.railway.app/${path}`;
+export const getPath = (path: string) => {
+  // return `http://localhost:8080/${path}`;
+  return `https://tyrael.up.railway.app/${path}`;
+}
 
-  const response = await fetch(apiPath, {
+export async function getServerData(path: string) {
+  const response = await fetch(getPath(path), {
     cache: 'no-store',
     method: 'GET',
     headers: {
@@ -15,9 +18,7 @@ export async function getServerData(path: string) {
 }
 
 export async function getValidateData(path: string) {
-  const apiPath = `https://tyrael.up.railway.app/${path}`;
-
-  const response = await fetch(apiPath, {
+  const response = await fetch(getPath(path), {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -30,9 +31,7 @@ export async function getValidateData(path: string) {
 }
 
 export async function getCachedData(path: string) {
-  const apiPath = `https://tyrael.up.railway.app/${path}`;
-
-  const response = await fetch(apiPath, {
+  const response = await fetch(getPath(path), {
     cache: 'force-cache',
     method: 'GET',
     headers: {
